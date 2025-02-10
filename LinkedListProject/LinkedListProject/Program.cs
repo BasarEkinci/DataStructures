@@ -6,6 +6,7 @@
         {
             LinkedList list = new LinkedList(12);
             list.Append(7);
+            list.PrintList();
         }
     }
 }

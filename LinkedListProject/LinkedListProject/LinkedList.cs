@@ -31,11 +31,22 @@
             }
             else
             {
-                tail.Next = newNode;
+                tail!.Next = newNode;
                 tail = newNode;
             }
             length++;
         }
 
+        public void PrintList()
+        {
+            Node? temp = head;
+            Console.Write("List: ");
+            while (temp != null)
+            {
+                Console.Write($"{temp.data} ");
+                temp = temp.Next;
+            }
+            Console.WriteLine();
+        }
     }
 }
