@@ -48,5 +48,61 @@
             }
             Console.WriteLine();
         }
+
+        public int GetLength()
+        {
+            return length;
+        }
+
+        public void GetTail()
+        {
+            if (tail == null)
+            {
+                Console.WriteLine("List is empty");
+            }
+            else
+            {
+                Console.WriteLine("Tail: " + tail.data);
+            }
+        }
+
+        public void GetHead()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("List is empty");
+            }
+            else
+            {
+                Console.WriteLine("Head: " + head.data);
+            }
+        }
+
+        public Node DeleteLastNode()
+        {
+            Node? temp = tail;
+            if (length == 0)
+                return null;
+
+            else if (length == 1)
+            {
+                head = null;
+                tail = null;
+                length = 0;
+            }
+            else
+            {
+                Node current = head;
+                while (current!.Next != tail)
+                {
+                    current = current.Next;
+                }
+                temp = tail;
+                tail = current;
+                tail.Next = null;
+                length--;
+            }
+            return temp;
+        }
     }
 }
