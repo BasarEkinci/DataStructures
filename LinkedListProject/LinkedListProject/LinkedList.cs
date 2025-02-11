@@ -104,5 +104,34 @@
             }
             return temp;
         }
+
+        public Node DeleteFirstNode()
+        {
+            if (length == 0)
+                return null;
+
+            Node temp = head;
+
+            if (length == 1)
+            {
+                head = null;
+                tail = null;
+            }
+            else
+            {
+                Node current = head.Next;
+                head = null;
+                head = current;
+
+                while (current.Next != null)
+                {
+                    current = current.Next;
+                }
+                tail = current;
+                tail.Next = null;
+            }
+            length--;
+            return temp;
+        }
     }
 }
