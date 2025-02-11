@@ -111,25 +111,12 @@
                 return null;
 
             Node temp = head;
+            head = head.Next;
+            temp.Next = null;
 
-            if (length == 1)
-            {
-                head = null;
+            if(length == 1)
                 tail = null;
-            }
-            else
-            {
-                Node current = head.Next;
-                head = null;
-                head = current;
 
-                while (current.Next != null)
-                {
-                    current = current.Next;
-                }
-                tail = current;
-                tail.Next = null;
-            }
             length--;
             return temp;
         }
