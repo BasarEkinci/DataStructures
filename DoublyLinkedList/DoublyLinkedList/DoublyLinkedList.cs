@@ -41,10 +41,10 @@
         public void PrintList()
         {
             Node currentNode = head;
-
+            Console.Write("\nList: ");
             while (currentNode != null)
             {
-                Console.Write("List: " + currentNode.Data + " ");
+                Console.Write(currentNode.Data + " ");
                 currentNode = currentNode.Next;
             }
         }
@@ -54,14 +54,41 @@
             return length;
         }
 
-        public int GetHead()
+        public void GetHead()
         {
-            return head.Data;
+            if (head == null)
+            {
+                return;
+            }
+            Console.Write("Head: " + head.Data + "\n");
         }
 
-        public int GetTail()
+        public void GetTail()
         {
-            return tail.Data;
+            if (tail == null)
+            {
+                return;
+            }
+            Console.Write("Tail: " + tail.Data + "\n");
+        }
+
+        public Node DeleteLast()
+        {
+            if (head == null) return null;
+            Node nodeToDelete = tail;
+
+            if(length == 1)
+            {
+                head = null;
+                tail = null;
+            }
+            else
+            {
+                tail = nodeToDelete.Prev;
+                tail.Next = null;
+                nodeToDelete.Prev = null;
+            }
+            return nodeToDelete;
         }
     }
 }
